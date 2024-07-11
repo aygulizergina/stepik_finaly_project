@@ -1,5 +1,5 @@
 from .base_page import BasePage
-
+from selenium.webdriver.common.by import By
 
 class LoginPage(BasePage):
     def should_be_login_page(self):
@@ -9,7 +9,7 @@ class LoginPage(BasePage):
 
     def should_be_login_url(self):
         # проверка на корректность url адреса
-        assert "login" in browser.current_url, "Login link is presented"
+        assert self.is_element_present(By.CSS_SELECTOR, "#login_link"), "Login link is presented"
 
     def should_be_login_form(self):
         # проверка, что есть форма логина
